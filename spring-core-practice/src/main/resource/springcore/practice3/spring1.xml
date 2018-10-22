@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="Jili" class="td.learn.springcore.pracitce3.Jili"></bean>
+
+    <!--通过构造器注入bean-->
+    <bean id="Siji" class="td.learn.springcore.pracitce3.Driver">
+        <constructor-arg ref="Jili">
+        </constructor-arg>
+    </bean>
+
+    <!--构造器注入字面量-->
+    <bean id="Tom" class="td.learn.springcore.pracitce3.Tom">
+        <constructor-arg value="18"></constructor-arg>
+        <constructor-arg value="tom"></constructor-arg>
+    </bean>
+
+    <!--构造器注入集合-->
+    <bean id="TravelWay" class="td.learn.springcore.pracitce3.TravelWay">
+        <constructor-arg>
+            <list>
+                <value>bus</value>
+                <value>airplane</value>
+                <value>car</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <!--Setter方法注入bean-->
+    <bean id="MyDriver" class="td.learn.springcore.pracitce3.Driver">
+        <property name="car" ref="Jili"></property>
+    </bean>
+
+    <!--Setter方法注入字面量-->
+    <bean id="MyTom" class="td.learn.springcore.pracitce3.Tom">
+        <property name="age" value="88"></property>
+        <property name="name" value="mytom"></property>
+    </bean>
+    <!--Setter方法注入集合-->
+    <bean id="TravelPlan" class="td.learn.springcore.pracitce3.TravelWay">
+        <property name="didian">
+            <set>
+                <value>dongjing</value>
+                <value>bali</value>
+                <value>dongjing</value>
+                <value>xi'an</value>
+            </set>
+
+        </property>
+    </bean>
+
+
+</beans>

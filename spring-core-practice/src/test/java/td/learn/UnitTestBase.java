@@ -2,6 +2,7 @@ package td.learn;
 
 import org.junit.After;
 import org.junit.Before;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class UnitTestBase {
@@ -13,6 +14,7 @@ public class UnitTestBase {
     private String xmlPath;
 
 
+
     public UnitTestBase(String xmlPath) {
         this.xmlPath = xmlPath;
     }
@@ -21,6 +23,7 @@ public class UnitTestBase {
     @Before
     public void init() {
         System.out.println("容器初始化 - 开始");
+
         context = new ClassPathXmlApplicationContext(xmlPath.split("[,\\s]+"));
         System.out.println("容器初始化 — 完成");
     }
@@ -34,6 +37,8 @@ public class UnitTestBase {
     public Object getBean(String beanName) {
 
         System.out.println("根据bean名称获取bean:" + beanName);
+        String[] beandefeinetions=context.getBeanDefinitionNames();
+
         return context.getBean(beanName);
     }
 
