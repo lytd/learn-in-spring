@@ -13,7 +13,8 @@ public class UnitTestBase {
     //配置文件路径
     private String xmlPath;
 
-
+    public UnitTestBase() {
+    }
 
     public UnitTestBase(String xmlPath) {
         this.xmlPath = xmlPath;

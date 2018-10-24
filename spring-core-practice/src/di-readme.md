@@ -98,5 +98,34 @@ public class Practice2Config {
 
 ## 混合导入
 ### javaconfig中导入xml
-### xml中导入javaconfig
+在javaconfig类中可以引用另一个javaconfig、xml配置文件或者同时引用
+- **引用javaconfig**:在javaconfig类中使用@Import注解可以引用其他的javaconfig类
 
+- **引用xml**:在javaconfig类中使用@ImportResources注解可以引用xml配置
+
+```java
+@Configuration
+@Import({Config1.class,Config2.class})
+@ImportResource("classpath:config.xml")
+public class SystemConfig{
+    //...
+}
+
+```
+
+### xml中导入javaconfig
+- **引用javaconfig**:没有xml标签可以直接导入javaconfig，但是可以使用bean标签，先声明一个bean，然后在将其装配
+
+- **引用xml**:在xml配置文件中使用<import>标签可以引用xml配置
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:spring-context.xml"></import>
+    <bean id="config" class="td.learn.springcore.practice2.javaconfig.Practice2Config"></bean>
+</beans>
+
+```
