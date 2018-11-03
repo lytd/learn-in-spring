@@ -14,5 +14,5 @@ import java.lang.annotation.Target;
         RetentionPolicy.RUNTIME
 )
 @Qualifier
-public @interface Cold {
+public @interface White {
 }

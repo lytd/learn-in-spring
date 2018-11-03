@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("renlei")
-public class Human implements IJump{
+@Qualifier("gou")
+public class Dog implements IJump{
     @Override
     public void jump() {
-        System.out.println("Human jump");
+        System.out.println("Dog jump");
 
     }
 }

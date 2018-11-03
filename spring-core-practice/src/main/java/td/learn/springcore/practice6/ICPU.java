@@ -1,4 +1,5 @@
 package td.learn.springcore.practice6;
 
-public class ICPU {
+public interface ICPU {
+    void coreNum();
 }
